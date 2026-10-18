@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Miel, coffee & brunch",
+    "description": "Specialty coffee and homemade brunch in the heart of Mons. Open Tuesday to Sunday, 8am to 5pm."
+  },
+  "nav": { "home": "home", "menu": "menu", "info": "information" },
+  "common": {
+    "descriptor": "coffee & brunch",
+    "address": "Rue de la Clef 14, 7000 Mons",
+    "hoursShort": "Tue – Sun · 8am – 5pm",
+    "directions": "Get directions",
+    "seeMenu": "see the menu",
+    "photo": "photo"
+  },
+  "home": {
+    "heroTagline": "Coffee. Brunch. Honey.",
+    "menuTitle": "The menu",
+    "menuSubtitle": "Homemade, every morning",
+    "cards": ["coffee", "brunch", "sweets"],
+    "bandTitleA": "",
+    "bandBrunch": "BRUNCH",
+    "bandTitleB": "to stay,",
+    "bandTitleC": "",
+    "bandCoffee": "COFFEE",
+    "bandTitleD": "to go.",
+    "bandText": "No booking needed: sit down for brunch, or grab your coffee on the way. Made to order, served with a smile.",
+    "favoritesTitle": "Our favorites",
+    "favoritesSubtitle": "Generous. Honest. Golden.",
+    "favorites": [
+      {
+        "name": "Iced Honey Latte",
+        "text": "espresso, cold silky milk, wildflower honey and honeycomb."
+      },
+      {
+        "name": "The Morning Toast",
+        "text": "seeded bread, smashed avocado, poached egg and microgreens."
+      },
+      {
+        "name": "Blue Stack",
+        "text": "fluffy pancakes, fresh blueberries, lemon and golden syrup."
+      },
+      {
+        "name": "The Golden Swirl",
+        "text": "warm cinnamon-swirl brioche with honey glaze."
+      }
+    ],
+    "marquee": ["Sweet", "Warm", "Fresh", "Golden", "Homemade"]
+  },
+  "info": {
+    "heroTitle": "Specialty coffee, homemade brunch and one long table where nobody watches the clock.",
+    "addressLabel": "find us",
+    "addressTitle": "Come say hello.",
+    "city": "Mons, Belgium",
+    "addressText": "At the end of Rue de la Clef, five minutes from the Grand-Place. Come in, sit wherever you like, we'll take care of the rest.",
+    "noBooking": "No booking needed, just come as you are.",
+    "hoursLabel": "Hours",
+    "hours": ["Tuesday – Sunday | 8am – 5pm", "Monday – closed"],
+    "storyLabel": "about miel",
+    "storyTitle": "Morning lasts until 5pm here.",
+    "storySub": "Good coffee, no rush.",
+    "storyText": "A coffee and brunch house in the heart of Mons. Big windows, one long table and pancakes until close.",
+    "storyBy": "Léa grew up among her grandfather's beehives in Hainaut. By age 8, she was putting honey in everything, even soup. At 25, she left her desk job to train as a barista, and in 2024 she opened Miel in the heart of Mons. Or so the regulars say.",
+    "storyBy2": "Since then, she has sourced her honey from a local beekeeper and baked the menu's pastries every morning. Her rule: one long table, good coffee, and nobody watching the clock.",
+    "practicalTitle": "Good to know",
+    "practical": [
+      "5 min walk from Mons station",
+      "No booking, even on weekends",
+      "Dogs welcome",
+      "Free wifi",
+      "Card and Bancontact accepted",
+      "Vegetarian and gluten-free options"
+    ]
+  },
+  "footer": {
+    "tagline": "Where coffee meets honey.",
+    "copyright": "Miel, coffee & brunch · Fictional portfolio project · 2026",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  },
+  "menuPage": {
+    "title": "The menu",
+    "subtitle": "Generous. Honest. Golden.",
+    "tabs": { "coffee": "coffee", "brunch": "brunch", "sweets": "sweets" },
+    "handle": "@miel.coffee"
+  }
+}

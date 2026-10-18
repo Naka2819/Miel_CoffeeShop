@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Miel, coffee & brunch",
+    "description": "Café de spécialité et brunch maison au cœur de Mons. Ouvert du mardi au dimanche, de 8h à 17h."
+  },
+  "nav": { "home": "accueil", "menu": "menu", "info": "informations" },
+  "common": {
+    "descriptor": "coffee & brunch",
+    "address": "Rue de la Clef 14, 7000 Mons",
+    "hoursShort": "Mar – Dim · 8h – 17h",
+    "directions": "Itinéraire",
+    "seeMenu": "voir le menu",
+    "photo": "photo"
+  },
+  "home": {
+    "heroTagline": "Café. Brunch. Miel.",
+    "menuTitle": "Le menu",
+    "menuSubtitle": "Fait maison, chaque matin",
+    "cards": ["café", "brunch", "dessert"],
+    "bandTitleA": "Un",
+    "bandBrunch": "BRUNCH",
+    "bandTitleB": "sur place,",
+    "bandTitleC": "un",
+    "bandCoffee": "CAFÉ",
+    "bandTitleD": "pour la route.",
+    "bandText": "Pas besoin de réserver : installe-toi pour le brunch, ou passe chercher ton café en chemin. Préparé minute, servi avec le sourire.",
+    "favoritesTitle": "Nos favoris",
+    "favoritesSubtitle": "Généreux. Sincère. Doré.",
+    "favorites": [
+      {
+        "name": "Latte Miel Glacé",
+        "text": "espresso, lait froid onctueux, miel de fleurs et rayon de miel."
+      },
+      {
+        "name": "La Tartine du Matin",
+        "text": "pain aux graines, avocat écrasé, œuf poché et jeunes pousses."
+      },
+      {
+        "name": "Pancakes Bleuets",
+        "text": "pancakes moelleux, myrtilles fraîches, citron et sirop doré."
+      },
+      {
+        "name": "Le Roulé Doré",
+        "text": "brioche tiède roulée à la cannelle, glaçage au miel."
+      }
+    ],
+    "marquee": ["Doux", "Chaud", "Frais", "Doré", "Maison"]
+  },
+  "info": {
+    "heroTitle": "Du café de spécialité, un brunch fait maison et une longue table où personne ne regarde l'heure.",
+    "addressLabel": "notre adresse",
+    "addressTitle": "Viens nous voir.",
+    "city": "Mons, Belgique",
+    "addressText": "Au bout de la rue de la Clef, à cinq minutes de la Grand-Place. Entre, installe-toi où tu veux, on s'occupe du reste.",
+    "noBooking": "Pas besoin de réserver, viens comme tu es.",
+    "hoursLabel": "Horaires",
+    "hours": ["Mardi – Dimanche | 8h – 17h", "Lundi – fermé"],
+    "storyLabel": "notre histoire",
+    "storyTitle": "Ici, le matin dure jusqu'à 17h.",
+    "storySub": "Du bon café, sans se presser.",
+    "storyText": "Un café-brunch niché au cœur de Mons. De grandes vitres, une longue table et des pancakes jusqu'à la fermeture.",
+    "storyBy": "Léa a grandi entre les ruches de son grand-père, dans le Hainaut. À 8 ans, elle mettait déjà du miel dans tout, même dans la soupe. À 25 ans, elle quittait son bureau pour apprendre le métier de barista, et en 2024, elle ouvrait Miel au cœur de Mons. Du moins, c'est ce que racontent les habitués.",
+    "storyBy2": "Depuis, elle sélectionne son miel chez un apiculteur de la région et prépare chaque matin les pâtisseries de la carte. Sa règle : une longue table, du bon café, et personne ne regarde l'heure.",
+    "practicalTitle": "Infos pratiques",
+    "practical": [
+      "À 5 min à pied de la gare de Mons",
+      "Sans réservation, même le week-end",
+      "Chiens bienvenus",
+      "Wifi gratuit",
+      "Carte et Bancontact",
+      "Options végétariennes et sans gluten"
+    ]
+  },
+  "footer": {
+    "tagline": "Où le café rencontre le miel.",
+    "copyright": "Miel, coffee & brunch · Portfolio fictif · 2026",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  },
+  "menuPage": {
+    "title": "Le menu",
+    "subtitle": "Généreux. Sincère. Doré.",
+    "tabs": { "coffee": "cafés", "brunch": "brunch", "sweets": "douceurs" },
+    "handle": "@miel.coffee"
+  }
+}
