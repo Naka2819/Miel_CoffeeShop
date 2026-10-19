@@ -2,9 +2,10 @@
 
 Site vitrine fictif d'un coffee shop à Mons (projet de portfolio).
 
-- Next.js (App Router) + Tailwind CSS
-- Bilingue FR / EN (routes `/fr` et `/en`, textes dans `src/app/[lang]/dictionaries`)
+- Next.js (App Router) + Tailwind CSS, police DM Sans auto-hébergée
+- Bilingue FR / EN : routes `/fr` et `/en`, textes dans `src/app/[lang]/dictionaries`
 - Carte dans `src/data/menu.ts`
+- Photos dans `public/images`, références de design dans `design-refs` (hors du site)
 
 ## Lancer le projet
 
@@ -17,5 +18,4 @@ Puis ouvrir http://localhost:3000.
 
 ## À remplacer
 
-- Les blocs `PhotoSlot` par les vraies photos (dans `public/images`).
-- La police Caveat Brush par Felt Tip Senior (fichier dans `src/fonts`, chemin à changer dans `src/app/[lang]/layout.tsx`).
+- `src/components/Swirl.tsx` dessine le motif en spirale : le remplacer par le SVG exact du logo.

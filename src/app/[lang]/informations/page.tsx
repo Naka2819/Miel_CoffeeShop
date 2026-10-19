@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { PhotoSlot } from "@/components/PhotoSlot";
+import { Swirl } from "@/components/Swirl";
 import { getDictionary, hasLocale } from "../dictionaries";
 
 export default async function InfoPage({ params }: PageProps<"/[lang]/informations">) {
@@ -7,41 +8,63 @@ export default async function InfoPage({ params }: PageProps<"/[lang]/informatio
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
   const i = dict.info;
+  const a = dict.alt;
 
   return (
     <>
-      {/* Hero : concept en grand sur une image */}
-      <section className="relative">
-        <PhotoSlot label={`${dict.common.photo} : hero`} className="h-[60vh] min-h-[420px] w-full" />
-        <h1 className="absolute inset-x-0 bottom-0 mx-auto max-w-5xl px-5 pb-12 text-center text-[clamp(1.75rem,4vw,3.25rem)] font-medium leading-tight text-brioche [text-shadow:0_1px_12px_rgba(59,42,32,.6)]">
-          {i.heroTitle}
-        </h1>
+      {/* Hero : le concept sur une image */}
+      <section className="relative h-[64vh] min-h-[440px] w-full overflow-hidden">
+        <Image
+          src="/images/hero-info.jpg"
+          alt={a.heroInfo}
+          fill
+          sizes="100vw"
+          loading="eager"
+          fetchPriority="high"
+          className="object-cover object-[50%_60%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/25 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 mx-auto max-w-[1440px] px-5 pb-10 text-brioche md:px-20">
+          <p className="italic text-miel">{i.conceptLabel}</p>
+          <h1 className="mt-2 max-w-4xl text-[clamp(1.75rem,3.6vw,2.75rem)] font-medium leading-tight">
+            {i.conceptText}
+          </h1>
+        </div>
       </section>
 
       {/* Adresse */}
-      <section className="mx-auto grid max-w-[1440px] gap-12 px-5 py-24 md:grid-cols-2 md:px-20">
-        <PhotoSlot label={`${dict.common.photo} : salle`} className="aspect-[4/5] w-full" />
-        <div className="md:pl-6">
-          <p className="text-right italic text-espresso/80">{i.addressLabel}</p>
-          <h2 className="text-right text-6xl font-medium uppercase leading-none">{i.addressTitle}</h2>
-          <p className="mt-12 text-2xl font-medium uppercase">{i.city}</p>
+      <section className="mx-auto grid max-w-[1440px] items-start gap-12 px-5 py-24 md:grid-cols-2 md:px-20">
+        <div className="relative aspect-[4/5] w-full overflow-hidden md:max-w-[480px]">
+          <Image
+            src="/images/salle.webp"
+            alt={a.salle}
+            fill
+            sizes="(min-width: 768px) 35vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <p className="text-right italic text-miel">{i.addressLabel}</p>
+          <h2 className="text-right text-[clamp(2.5rem,5vw,4rem)] font-medium uppercase leading-none">
+            {i.addressTitle}
+          </h2>
+          <p className="mt-14 text-2xl font-medium uppercase">{dict.common.city}</p>
           <p className="text-sm uppercase">{dict.common.address}</p>
-          <blockquote className="mt-10 text-xl italic">{i.addressText}</blockquote>
-          <p className="mt-6 font-medium">{i.noBooking}</p>
-          <h3 className="mt-10 text-xl font-medium uppercase">{i.hoursLabel}</h3>
-          <ul className="mt-2 space-y-1 italic">
+          <blockquote className="relative mt-12 max-w-md pl-6 text-xl italic leading-snug">
+            <span aria-hidden="true" className="absolute -left-1 -top-2 text-4xl not-italic text-miel">
+              “
+            </span>
+            {i.addressText}
+            <span aria-hidden="true" className="ml-1 align-bottom text-4xl not-italic leading-none text-miel">
+              ”
+            </span>
+          </blockquote>
+          <h3 className="mt-14 text-xl font-medium uppercase">{i.hoursLabel}</h3>
+          <ul className="mt-3 space-y-1 text-sm uppercase italic">
             {i.hours.map((h) => (
               <li key={h}>{h}</li>
             ))}
           </ul>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Clef+14+7000+Mons"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-8 inline-block rounded-full bg-cerise px-8 py-2 text-brioche hover:bg-espresso"
-          >
-            {dict.common.directions}
-          </a>
         </div>
       </section>
 
@@ -49,36 +72,53 @@ export default async function InfoPage({ params }: PageProps<"/[lang]/informatio
       <section className="mx-auto max-w-[1440px] px-5 pb-24 md:px-20">
         <div className="grid gap-8 md:grid-cols-[3fr_2fr]">
           <div>
-            <p className="italic text-espresso/80">{i.storyLabel}</p>
-            <h2 className="text-6xl font-medium uppercase leading-[0.95]">{i.storyTitle}</h2>
+            <p className="italic text-miel">{i.storyLabel}</p>
+            <h2 className="mt-1 max-w-xl text-[clamp(2.5rem,5vw,4rem)] font-medium uppercase leading-[0.95]">
+              {i.storyTitle}
+            </h2>
           </div>
           <div className="md:text-right">
             <p className="text-xl font-medium">{i.storySub}</p>
-            <p className="mt-3 italic">{i.storyText}</p>
+            <p className="mt-3 italic leading-snug">{i.storyText}</p>
           </div>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <PhotoSlot label={`${dict.common.photo} : comptoir`} className="aspect-[3/4]" />
-          <PhotoSlot label={`${dict.common.photo} : latte art`} className="aspect-[4/3] md:mt-24" />
-          <PhotoSlot label={`${dict.common.photo} : terrasse`} className="aspect-[3/4] md:mt-12" />
-        </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 md:gap-12">
-          <p>{i.storyBy}</p>
-          <p>{i.storyBy2}</p>
-        </div>
-      </section>
 
-      {/* Infos pratiques */}
-      <section className="bg-brioche px-5 pb-24 md:px-20">
-        <div className="mx-auto max-w-[1440px]">
-          <h2 className="font-brush text-5xl text-miel">{i.practicalTitle}</h2>
-          <ul className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
-            {i.practical.map((p) => (
-              <li key={p} className="border-t border-espresso pt-3 text-lg">
-                {p}
-              </li>
-            ))}
-          </ul>
+        <div className="mt-14 grid items-start gap-6 md:grid-cols-[1fr_1.4fr_1fr]">
+          <div className="relative">
+            <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <Image
+                src="/images/histoire-comptoir.webp"
+                alt={a.histoireComptoir}
+                fill
+                sizes="(min-width: 768px) 25vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              className="absolute -top-10 right-0 flex size-20 items-center justify-center rounded-full bg-brioche text-espresso"
+            >
+              <Swirl className="size-12" strokeWidth={7} />
+            </span>
+          </div>
+          <div className="relative aspect-[4/3] w-full overflow-hidden md:mt-28">
+            <Image
+              src="/images/histoire-lattes.webp"
+              alt={a.histoireLattes}
+              fill
+              sizes="(min-width: 768px) 38vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative aspect-square w-full overflow-hidden md:mt-14">
+            <Image
+              src="/images/histoire-terrasse.webp"
+              alt={a.histoireTerrasse}
+              fill
+              sizes="(min-width: 768px) 25vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
     </>

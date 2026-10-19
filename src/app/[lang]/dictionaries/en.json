@@ -5,82 +5,72 @@
   },
   "nav": { "home": "home", "menu": "menu", "info": "information" },
   "common": {
-    "descriptor": "coffee & brunch",
     "address": "Rue de la Clef 14, 7000 Mons",
-    "hoursShort": "Tue – Sun · 8am – 5pm",
-    "directions": "Get directions",
-    "seeMenu": "see the menu",
-    "photo": "photo"
+    "addressUpper": "Rue de la Clef 14, 7000 Mons.",
+    "openLine": "Open Tuesday to Sunday, 8am – 5pm.",
+    "daysShort": "Tue–Sun",
+    "hoursBig": "08:00 – 17:00",
+    "city": "Mons, Belgium",
+    "menuButton": "menu"
   },
   "home": {
-    "heroTagline": "Coffee. Brunch. Honey.",
+    "heroKicker": "Mornings are",
+    "heroText": "Specialty coffee and homemade brunch, from morning until 5pm. Come hungry, come whenever.",
     "menuTitle": "The menu",
-    "menuSubtitle": "Homemade, every morning",
+    "menuSubtitle": "Indulgent & homemade.",
     "cards": ["coffee", "brunch", "sweets"],
-    "bandTitleA": "",
+    "bandA": "",
     "bandBrunch": "BRUNCH",
-    "bandTitleB": "to stay,",
-    "bandTitleC": "",
+    "bandB": "to stay,",
+    "bandC": "",
     "bandCoffee": "COFFEE",
-    "bandTitleD": "to go.",
+    "bandD": "to go.",
     "bandText": "No booking needed: sit down for brunch, or grab your coffee on the way. Made to order, served with a smile.",
     "favoritesTitle": "Our favorites",
-    "favoritesSubtitle": "Generous. Honest. Golden.",
+    "favoritesSubtitle": "Simple. Fresh. Sweet.",
     "favorites": [
-      {
-        "name": "Iced Honey Latte",
-        "text": "espresso, cold silky milk, wildflower honey and honeycomb."
-      },
-      {
-        "name": "The Morning Toast",
-        "text": "seeded bread, smashed avocado, poached egg and microgreens."
-      },
-      {
-        "name": "Blue Stack",
-        "text": "fluffy pancakes, fresh blueberries, lemon and golden syrup."
-      },
-      {
-        "name": "The Golden Swirl",
-        "text": "warm cinnamon-swirl brioche with honey glaze."
-      }
-    ],
-    "marquee": ["Sweet", "Warm", "Fresh", "Golden", "Homemade"]
-  },
-  "info": {
-    "heroTitle": "Specialty coffee, homemade brunch and one long table where nobody watches the clock.",
-    "addressLabel": "find us",
-    "addressTitle": "Come say hello.",
-    "city": "Mons, Belgium",
-    "addressText": "At the end of Rue de la Clef, five minutes from the Grand-Place. Come in, sit wherever you like, we'll take care of the rest.",
-    "noBooking": "No booking needed, just come as you are.",
-    "hoursLabel": "Hours",
-    "hours": ["Tuesday – Sunday | 8am – 5pm", "Monday – closed"],
-    "storyLabel": "about miel",
-    "storyTitle": "Morning lasts until 5pm here.",
-    "storySub": "Good coffee, no rush.",
-    "storyText": "A coffee and brunch house in the heart of Mons. Big windows, one long table and pancakes until close.",
-    "storyBy": "Léa grew up among her grandfather's beehives in Hainaut. By age 8, she was putting honey in everything, even soup. At 25, she left her desk job to train as a barista, and in 2024 she opened Miel in the heart of Mons. Or so the regulars say.",
-    "storyBy2": "Since then, she has sourced her honey from a local beekeeper and baked the menu's pastries every morning. Her rule: one long table, good coffee, and nobody watching the clock.",
-    "practicalTitle": "Good to know",
-    "practical": [
-      "5 min walk from Mons station",
-      "No booking, even on weekends",
-      "Dogs welcome",
-      "Free wifi",
-      "Card and Bancontact accepted",
-      "Vegetarian and gluten-free options"
+      { "name": "Iced Honey Latte", "text": "espresso, cold silky milk, wildflower honey and honeycomb." },
+      { "name": "The Morning Toast", "text": "seeded bread, smashed avocado, poached egg and microgreens." },
+      { "name": "Blue Stack", "text": "fluffy pancakes, fresh blueberries, lemon and golden syrup." },
+      { "name": "The Golden Swirl", "text": "warm cinnamon-swirl brioche with honey glaze." }
     ]
   },
+  "info": {
+    "conceptLabel": "our concept",
+    "conceptText": "Miel is the idea that mornings deserve better than a rush. Good coffee, homemade brunch, and no one hurrying you.",
+    "addressLabel": "find us",
+    "addressTitle": "Come say hello.",
+    "addressText": "At the end of Rue de la Clef, five minutes from the Grand-Place. Come in, sit wherever you like, we'll take care of the rest.",
+    "hoursLabel": "Hours:",
+    "hours": ["Tuesday – Sunday | 08:00 – 17:00", "Monday – closed"],
+    "storyLabel": "our story",
+    "storyTitle": "Morning lasts until 5pm here.",
+    "storySub": "Good coffee, no rush.",
+    "storyText": "A coffee and brunch house in the heart of Mons. Big windows, one long table and pancakes until close."
+  },
+  "menuPage": {
+    "badge": ["Specialty coffee", "Homemade brunch", "Fresh ingredients", "Carefully roasted"]
+  },
   "footer": {
-    "tagline": "Where coffee meets honey.",
-    "copyright": "Miel, coffee & brunch · Fictional portfolio project · 2026",
+    "copyright": "Copyright 2026 ©",
     "instagram": "Instagram",
     "facebook": "Facebook"
   },
-  "menuPage": {
-    "title": "The menu",
-    "subtitle": "Generous. Honest. Golden.",
-    "tabs": { "coffee": "coffee", "brunch": "brunch", "sweets": "sweets" },
-    "handle": "@miel.coffee"
+  "alt": {
+    "heroHome": "Two croissants and a coffee served on a small terrace table",
+    "cardCafe": "Iced milk coffee seen from above",
+    "cardBrunch": "Golden honeycomb",
+    "cardDessert": "Cinnamon rolls with honey glaze",
+    "bandBrunch": "Two friends sharing brunch on a terrace",
+    "favLatte": "Iced honey latte with a honey dipper",
+    "favTartine": "Avocado and poached egg toast on seeded bread",
+    "favPancakes": "Stack of blueberry pancakes with golden syrup",
+    "favRoule": "Cinnamon roll on a marble tray",
+    "heroInfo": "Two cups of coffee on a wooden stool",
+    "salle": "The coffee bar with the team at work",
+    "histoireComptoir": "Two baristas making filter coffee at the counter",
+    "histoireLattes": "A tray of three lattes in stoneware cups",
+    "histoireTerrasse": "Guests seated on the terrace, served by the team",
+    "gateaux": "Iced coffee and pastries on a wooden tray"
   }
 }

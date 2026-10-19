@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { notFound } from "next/navigation";
 import "../globals.css";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
-import { notFound } from "next/navigation";
-
-// Caveat Brush remplace Felt Tip Senior en attendant le fichier de la police.
-// Pour passer à Felt Tip Senior : déposer le fichier dans src/fonts et changer le chemin ci-dessous.
-const brush = localFont({
-  src: "../../fonts/caveat-brush-latin-400-normal.woff2",
-  weight: "400",
-  variable: "--font-brush",
-  display: "swap",
-});
 
 const dmSans = localFont({
   src: [
@@ -47,7 +38,7 @@ export default async function RootLayout({
   const dict = getDictionary(lang);
 
   return (
-    <html lang={lang} className={`${brush.variable} ${dmSans.variable}`}>
+    <html lang={lang} className={dmSans.variable}>
       <body className="flex min-h-screen flex-col">
         <Nav lang={lang} dict={dict} />
         <main className="flex-1">{children}</main>

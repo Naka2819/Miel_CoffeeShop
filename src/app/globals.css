@@ -15,7 +15,6 @@
   --color-brioche: var(--brioche);
   --color-espresso: var(--espresso);
   --font-sans: var(--font-dm-sans);
-  --font-brush: var(--font-brush);
 }
 
 html {
@@ -30,6 +29,16 @@ body {
   letter-spacing: -0.02em;
 }
 
+/* Gros titres : DM Sans italique, très gras, majuscules, serrés */
+.display {
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: var(--miel);
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -40,7 +49,7 @@ body {
 }
 
 .marquee-track {
-  animation: marquee 28s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,21 +1,15 @@
-export function Marquee({ words }: { words: string[] }) {
-  const row = [...words, ...words, ...words, ...words];
+export function Marquee({ items }: { items: string[] }) {
+  // Deux moitiés identiques : la piste glisse de -50 % puis recommence sans coupure.
+  const half = [...items, ...items, ...items, ...items];
   return (
-    <div
-      className="overflow-hidden bg-miel py-3 text-espresso"
-      role="presentation"
-      aria-hidden="true"
-    >
-      <div className="marquee-track flex w-max">
+    <div className="overflow-hidden bg-miel py-3 text-espresso">
+      <p className="sr-only">{items.join(" ")}</p>
+      <div className="marquee-track flex w-max" aria-hidden="true">
         {[0, 1].map((n) => (
           <div key={n} className="flex shrink-0">
-            {row.map((w, i) => (
-              <span
-                key={`${n}-${i}`}
-                className="flex items-center gap-6 pr-6 text-2xl font-medium uppercase"
-              >
-                {w}
-                <span className="size-2 rounded-full bg-espresso" />
+            {half.map((text, i) => (
+              <span key={`${n}-${i}`} className="px-6 text-sm font-normal uppercase tracking-tight md:text-base">
+                {text}
               </span>
             ))}
           </div>
