@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Dictionary, Locale } from "@/app/[lang]/dictionaries";
@@ -16,32 +17,37 @@ export function Nav({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   ];
 
   return (
-    <header className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-5 py-3 text-[15px] md:px-20">
-      <nav aria-label="Navigation principale" className="flex gap-5 md:gap-10">
-        {links.map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            aria-current={l.active ? "page" : undefined}
-            className={l.active ? "font-medium" : "hover:underline"}
-          >
-            {l.label}
-          </Link>
-        ))}
-      </nav>
-      <div className="flex items-center gap-4">
-        <Link
-          href={`/${other}${rest}`}
-          hrefLang={other}
-          lang={other}
-          aria-label={other === "en" ? "English" : "Français"}
-          className="rounded-full border border-espresso px-2.5 py-0.5 text-xs font-medium uppercase hover:bg-espresso hover:text-brioche"
+    <header className="relative z-20 bg-brioche">
+      <div className="relative mx-auto flex items-center justify-between px-5 py-3 md:block md:p-0 md:uw-1440 md:uh-54">
+        <nav
+          aria-label="Navigation principale"
+          className="flex gap-4 md:absolute md:ul-123 md:ut-0 md:ugap-40"
         >
-          {other}
-        </Link>
-        <Link href={`/${lang}`} aria-label="Miel" className="display text-3xl">
-          Miel<sup className="ml-0.5 align-super text-[0.35em] not-italic">™</sup>
-        </Link>
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              aria-current={l.active ? "page" : undefined}
+              className="text-[17px] font-light tracking-[-0.07em] hover:underline md:up-10 md:ufs-26"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
+          <Link
+            href={`/${other}${rest}`}
+            hrefLang={other}
+            lang={other}
+            aria-label={other === "en" ? "English" : "Français"}
+            className="rounded-full border border-espresso px-2 text-xs font-medium uppercase leading-5 hover:bg-espresso hover:text-brioche md:absolute md:ut-27 md:ur-234 md:-translate-y-1/2 md:upx-8 md:ufs-14"
+          >
+            {other}
+          </Link>
+          <Link href={`/${lang}`} aria-label="Miel" className="block md:absolute md:ul-1230 md:ut-13">
+            <Image src="/svg/logo-nav.svg" alt="" width={87} height={28} className="h-[28px] w-[87px] md:uh-28 md:uw-87" />
+          </Link>
+        </div>
       </div>
     </header>
   );

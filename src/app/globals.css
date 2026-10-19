@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
+/* Palette (variables Figma : Brioche, Espresso, Miel) */
 :root {
   --cerise: #b53324;
-  --miel: #e5a657;
+  --miel: #efbb65;
   --caramel: #dfbc94;
   --brioche: #f6efe6;
   --espresso: #3b2a20;
+  --terracotta: #c4623f;
+
+  /* 1 px de la maquette Figma (frames de 1440 px), réduit proportionnellement
+     sous 1440 px de large. Résolu contre la largeur du body (sans la barre de défilement). */
+  --u: min(1px, calc(100cqw / 1440));
 }
 
 @theme inline {
@@ -14,29 +20,54 @@
   --color-caramel: var(--caramel);
   --color-brioche: var(--brioche);
   --color-espresso: var(--espresso);
+  --color-terracotta: var(--terracotta);
   --font-sans: var(--font-dm-sans);
 }
+
+/* Valeurs en px de la maquette, mises à l'échelle avec --u : ut-80 = 80 px Figma. */
+@utility ul-* { left: calc(--value(number) * var(--u)); }
+@utility -ul-* { left: calc(--value(number) * var(--u) * -1); }
+@utility ur-* { right: calc(--value(number) * var(--u)); }
+@utility ut-* { top: calc(--value(number) * var(--u)); }
+@utility -ut-* { top: calc(--value(number) * var(--u) * -1); }
+@utility uw-* { width: calc(--value(number) * var(--u)); }
+@utility uh-* { height: calc(--value(number) * var(--u)); }
+@utility usize-* {
+  width: calc(--value(number) * var(--u));
+  height: calc(--value(number) * var(--u));
+}
+@utility ufs-* { font-size: calc(--value(number) * var(--u)); }
+@utility upx-* {
+  padding-left: calc(--value(number) * var(--u));
+  padding-right: calc(--value(number) * var(--u));
+}
+@utility upy-* {
+  padding-top: calc(--value(number) * var(--u));
+  padding-bottom: calc(--value(number) * var(--u));
+}
+@utility upt-* { padding-top: calc(--value(number) * var(--u)); }
+@utility upb-* { padding-bottom: calc(--value(number) * var(--u)); }
+@utility up-* { padding: calc(--value(number) * var(--u)); }
+@utility umt-* { margin-top: calc(--value(number) * var(--u)); }
+@utility -umt-* { margin-top: calc(--value(number) * var(--u) * -1); }
+@utility uml-* { margin-left: calc(--value(number) * var(--u)); }
+@utility ugap-* { gap: calc(--value(number) * var(--u)); }
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  container-type: inline-size;
+  overflow-x: clip;
   background: var(--brioche);
   color: var(--espresso);
   font-family: var(--font-dm-sans), sans-serif;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-}
-
-/* Gros titres : DM Sans italique, très gras, majuscules, serrés */
-.display {
-  font-style: italic;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
-  color: var(--miel);
+  font-weight: 400;
+  /* Interligne « auto » de Figma. */
+  line-height: normal;
+  /* Figma utilise DM Sans en taille optique 14 pour tous les textes. */
+  font-variation-settings: "opsz" 14;
 }
 
 @keyframes marquee {
@@ -55,5 +86,17 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+}
+
+/* Le carré « Café de spécialité » garde ses proportions Figma sur mobile :
+   on redéfinit l'unité pour que ses 482 px tiennent dans la largeur disponible. */
+.badge-scale {
+  --u: calc(min(100cqw - 40px, 482px) / 482);
+}
+
+@media (width >= 48rem) {
+  .badge-scale {
+    --u: min(1px, calc(100cqw / 1440));
   }
 }

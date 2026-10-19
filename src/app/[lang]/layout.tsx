@@ -8,8 +8,8 @@ import { getDictionary, hasLocale, locales } from "./dictionaries";
 
 const dmSans = localFont({
   src: [
-    { path: "../../fonts/dm-sans-latin-wght-normal.woff2", style: "normal" },
-    { path: "../../fonts/dm-sans-latin-wght-italic.woff2", style: "italic" },
+    { path: "../../fonts/dm-sans-latin-opsz-normal.woff2", style: "normal" },
+    { path: "../../fonts/dm-sans-latin-opsz-italic.woff2", style: "italic" },
   ],
   weight: "100 1000",
   variable: "--font-dm-sans",

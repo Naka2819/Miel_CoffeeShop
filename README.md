@@ -15,7 +15,3 @@ npm run dev
 ```
 
 Puis ouvrir http://localhost:3000.
-
-## À remplacer
-
-- `src/components/Swirl.tsx` dessine le motif en spirale : le remplacer par le SVG exact du logo.
