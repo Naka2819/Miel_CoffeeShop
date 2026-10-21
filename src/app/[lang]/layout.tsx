@@ -38,7 +38,12 @@ export default async function RootLayout({
   const dict = getDictionary(lang);
 
   return (
-    <html lang={lang} className={dmSans.variable}>
+    <html lang={lang} className={dmSans.variable} suppressHydrationWarning>
+      <head>
+        {/* Signale que JavaScript est actif avant l'affichage : les cases à faire apparaître
+            partent alors cachées, sans clignotement. Sans JavaScript, elles restent visibles. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className="flex min-h-screen flex-col">
         <Nav lang={lang} dict={dict} />
         <main className="flex-1">{children}</main>

@@ -17,8 +17,8 @@ export function Nav({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   ];
 
   return (
-    <header className="relative z-20 bg-brioche">
-      <div className="relative mx-auto flex items-center justify-between px-5 py-3 md:block md:p-0 md:uw-1440 md:uh-54">
+    <header className="sticky top-0 z-50 bg-brioche">
+      <div className="relative mx-auto flex items-center justify-between border-x border-b border-espresso px-5 py-3 md:block md:p-0 md:uw-1440 md:uh-54">
         <nav
           aria-label="Navigation principale"
           className="flex gap-4 md:absolute md:ul-123 md:ut-0 md:ugap-40"
@@ -28,7 +28,7 @@ export function Nav({ lang, dict }: { lang: Locale; dict: Dictionary }) {
               key={l.href}
               href={l.href}
               aria-current={l.active ? "page" : undefined}
-              className="text-[17px] font-light tracking-[-0.07em] hover:underline md:up-10 md:ufs-26"
+              className="link-swipe text-[17px] font-light tracking-[-0.07em] md:up-10 md:ufs-26"
             >
               {l.label}
             </Link>

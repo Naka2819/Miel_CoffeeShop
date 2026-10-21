@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
-// Fait apparaître les enfants « .reveal-item » quand le bloc entre à l'écran.
-// Sans JavaScript, le contenu reste visible : l'état caché n'est posé qu'au montage.
+// Fait apparaître les enfants « .reveal-item » quand le bloc est bien entré à l'écran.
 export function Reveal({
   as: Tag = "div",
   className,
@@ -20,18 +19,14 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    // Déjà à l'écran au chargement : on laisse tel quel, sans animation.
-    const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight && r.bottom > 0) return;
-
-    el.classList.add("reveal-pending");
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         el.classList.add("reveal-in");
         io.disconnect();
       },
-      { rootMargin: "0px 0px -15% 0px" },
+      // Déclenche quand un quart des cases est visible, pas dès qu'elles effleurent le bas de l'écran.
+      { threshold: 0.25 },
     );
     io.observe(el);
     return () => io.disconnect();
