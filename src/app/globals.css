@@ -30,6 +30,8 @@
 @utility ur-* { right: calc(--value(number) * var(--u)); }
 @utility ut-* { top: calc(--value(number) * var(--u)); }
 @utility -ut-* { top: calc(--value(number) * var(--u) * -1); }
+@utility ub-* { bottom: calc(--value(number) * var(--u)); }
+@utility -ub-* { bottom: calc(--value(number) * var(--u) * -1); }
 @utility uw-* { width: calc(--value(number) * var(--u)); }
 @utility uh-* { height: calc(--value(number) * var(--u)); }
 @utility usize-* {
@@ -98,5 +100,56 @@ body {
 @media (width >= 48rem) {
   .badge-scale {
     --u: min(1px, calc(100cqw / 1440));
+  }
+}
+
+/* Apparition des cases café / brunch / dessert, l'une après l'autre. */
+.reveal-pending .reveal-item {
+  opacity: 0;
+  transform: translateY(48px);
+}
+
+.reveal-pending.reveal-in .reveal-item {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 140ms);
+}
+
+/* Liens du pied de page : un trait miel se déroule sous le mot et le texte glisse légèrement. */
+.footer-link {
+  display: inline-block;
+  background-image: linear-gradient(var(--miel), var(--miel));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 0.12em;
+  transition:
+    background-size 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  background-size: 100% 0.12em;
+  transform: translateX(0.3em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending .reveal-item,
+  .reveal-pending.reveal-in .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .footer-link {
+    transition: none;
+  }
+
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    transform: none;
   }
 }

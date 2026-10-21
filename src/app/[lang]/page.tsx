@@ -2,10 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Marquee } from "@/components/Marquee";
+import { Reveal } from "@/components/Reveal";
 import { getDictionary, hasLocale } from "./dictionaries";
-
-// Largeur ajoutée de chaque côté quand l'écran dépasse les 1440 px de la maquette.
-const bleed = "max(0px, calc((100cqw - 1440px) / 2))";
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -35,54 +33,37 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero : limité à la grille de 1440 px et à la hauteur de l'écran (moins la nav).
+          Le contenu est calé sur le bas, aux mêmes distances que dans la frame Figma. */}
       <section className="relative z-10">
-        <div className="relative mx-auto h-[640px] md:h-auto md:uw-1440 md:uh-1004">
-          <div
-            className="absolute inset-0 overflow-hidden md:inset-y-0"
-            style={{ left: `calc(-1 * ${bleed})`, right: `calc(-1 * ${bleed})` }}
-          >
-            <div
-              className="absolute inset-0 md:inset-auto md:-ul-8 md:-ut-146.5 md:aspect-[1448/1812] md:w-(--w)"
-              style={{ ["--w" as string]: `calc(1448 * var(--u) + 2 * ${bleed})` }}
-            >
-              <Image
-                src="/images/hero-home.webp"
-                alt={a.heroHome}
-                fill
-                sizes="(min-width: 768px) 101vw, 100vw"
-                loading="eager"
-                fetchPriority="high"
-                className="object-cover object-top"
-              />
-            </div>
+        <div className="relative mx-auto h-[calc(100svh-52px)] min-h-[560px] overflow-hidden md:min-h-0 md:uw-1440 md:h-[max(calc(560*var(--u)),min(calc(1004*var(--u)),calc(100svh_-_54*var(--u))))]">
+          <div className="absolute inset-0 md:inset-auto md:-ul-8 md:-ub-661.5 md:aspect-[1448/1812] md:uw-1448">
             <Image
-              src="/svg/hero-shadow.svg"
-              alt=""
-              width={1440}
-              height={1222}
-              className="pointer-events-none absolute hidden max-w-none md:block md:ul-0 md:ut-150 md:uw-1440 md:uh-1222"
-            />
-            {/* Le dégradé Figma a ses deux arrêts à 0 % : il ne laisse qu'un filet sombre sous la nav. */}
-            <div className="absolute inset-x-0 top-0 h-px bg-black/50" />
-            <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 to-transparent to-60% md:hidden" />
-          </div>
-          {/* Le flou de l'ombre déborde sur la section suivante, comme dans la maquette. */}
-          <div className="pointer-events-none absolute hidden overflow-hidden md:block md:ul-0 md:ut-1004 md:uw-1440 md:uh-368">
-            <Image
-              src="/svg/hero-shadow.svg"
-              alt=""
-              width={1440}
-              height={1222}
-              className="absolute max-w-none md:ul-0 md:-ut-854 md:uw-1440 md:uh-1222"
+              src="/images/hero-home.webp"
+              alt={a.heroHome}
+              fill
+              sizes="(min-width: 768px) 1448px, 100vw"
+              loading="eager"
+              fetchPriority="high"
+              className="object-cover object-[50%_70%] md:object-top"
             />
           </div>
+          <Image
+            src="/svg/hero-shadow.svg"
+            alt=""
+            width={1440}
+            height={1222}
+            className="pointer-events-none absolute hidden max-w-none md:block md:ul-0 md:-ub-368 md:uw-1440 md:uh-1222"
+          />
+          {/* Le dégradé Figma a ses deux arrêts à 0 % : il ne laisse qu'un filet sombre sous la nav. */}
+          <div className="absolute inset-x-0 top-0 h-px bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 to-transparent to-60% md:hidden" />
 
           <div className="absolute inset-x-0 bottom-0 flex flex-col px-5 pb-8 text-brioche md:contents">
-            <p className="text-[32px] font-medium tracking-[-0.07em] md:absolute md:ul-126 md:ut-483 md:ufs-60">
+            <p className="text-[32px] font-medium tracking-[-0.07em] md:absolute md:ul-126 md:ub-443 md:ufs-60">
               {h.heroKicker}
             </p>
-            <h1 className="mt-2 md:absolute md:ul-123 md:ut-561 md:mt-0">
+            <h1 className="mt-2 md:absolute md:ul-123 md:ub-250 md:mt-0">
               <span className="sr-only">Miel</span>
               <Image
                 src="/svg/logo-hero.svg"
@@ -90,17 +71,17 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 width={593}
                 height={193}
                 loading="eager"
-                className="h-auto w-[280px] md:uh-193 md:uw-593"
+                className="block h-auto w-[280px] md:uh-193 md:uw-593"
               />
             </h1>
-            <p className="mt-5 max-w-[481px] text-[18px] font-medium tracking-[-0.07em] md:absolute md:ul-126 md:ut-777 md:mt-0 md:max-w-none md:uw-481 md:ufs-30">
+            <p className="mt-5 max-w-[481px] text-[18px] font-medium tracking-[-0.07em] md:absolute md:ul-126 md:ub-110 md:mt-0 md:max-w-none md:uw-481 md:ufs-30">
               {h.heroText}
             </p>
             <div className="mt-6 text-[14px] font-medium uppercase md:contents md:text-right">
-              <p className="tracking-[-0.07em] md:absolute md:ur-126 md:ut-828 md:whitespace-nowrap md:pr-[0.07em] md:ufs-25">
+              <p className="tracking-[-0.07em] md:absolute md:ur-126 md:ub-143 md:whitespace-nowrap md:pr-[0.07em] md:ufs-25">
                 {dict.common.city},
               </p>
-              <p className="tracking-[-0.07em] md:absolute md:ur-126 md:ut-861 md:whitespace-nowrap md:pr-[0.07em] md:ufs-25">
+              <p className="tracking-[-0.07em] md:absolute md:ur-126 md:ub-110 md:whitespace-nowrap md:pr-[0.07em] md:ufs-25">
                 {dict.common.openLine.replace(/\.$/, "")}
               </p>
             </div>
@@ -115,9 +96,12 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             <h2 className={`${title} md:absolute md:inset-x-0 md:ut-50`}>{h.menuTitle}</h2>
             <p className={`${subtitle} -mt-2 md:absolute md:inset-x-0 md:ut-141 md:mt-0`}>{h.menuSubtitle}</p>
           </div>
-          <ul className="mt-12 grid gap-6 md:absolute md:ul-126 md:ut-317 md:mt-0 md:flex md:ugap-54">
-            {cards.map((c) => (
-              <li key={c.label}>
+          <Reveal
+            as="ul"
+            className="mt-12 grid gap-6 md:absolute md:ul-126 md:ut-317 md:mt-0 md:flex md:ugap-54"
+          >
+            {cards.map((c, idx) => (
+              <li key={c.label} className="reveal-item" style={{ ["--i" as string]: idx }}>
                 <Link
                   href={`/${lang}/menu`}
                   className="group relative block aspect-[360/380] overflow-hidden md:aspect-auto md:uw-360 md:uh-380"
@@ -137,13 +121,13 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 </Link>
               </li>
             ))}
-          </ul>
+          </Reveal>
         </div>
       </section>
 
       {/* Sur place / pour la route */}
-      <section className="relative overflow-hidden bg-espresso">
-        <div className="relative mx-auto flex flex-col md:block md:uw-1440 md:uh-683">
+      <section className="relative">
+        <div className="relative mx-auto flex flex-col overflow-hidden bg-espresso md:block md:uw-1440 md:uh-683">
           <Image
             src="/svg/swirl-band.svg"
             alt=""
@@ -179,14 +163,8 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
               {dict.common.menuButton}
             </Link>
           </div>
-          <div
-            className="relative aspect-[631/684] overflow-hidden md:absolute md:aspect-auto md:ul-809 md:ut-0 md:uh-684 md:w-(--w)"
-            style={{
-              ["--w" as string]: `calc(631 * var(--u) + ${bleed})`,
-              ["--iw" as string]: `calc(639 * var(--u) + ${bleed})`,
-            }}
-          >
-            <div className="absolute inset-0 md:inset-auto md:-ul-8 md:-ut-32 md:aspect-[1200/1499] md:w-(--iw)">
+          <div className="relative aspect-[631/684] overflow-hidden md:absolute md:aspect-auto md:ul-809 md:ut-0 md:uh-684 md:uw-631">
+            <div className="absolute inset-0 md:inset-auto md:-ul-8 md:-ut-32 md:aspect-[1200/1499] md:uw-639">
               <Image
                 src="/images/band-brunch.jpg"
                 alt={a.bandBrunch}
@@ -216,14 +194,16 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           <ul className="mt-12 grid gap-10 sm:grid-cols-2 md:absolute md:ul-126 md:ut-321 md:mt-0 md:flex md:ugap-24">
             {favorites.map((f) => (
               <li key={f.name} className="md:uw-279">
-                <div className="relative aspect-[279/380] overflow-hidden md:aspect-auto md:uh-380">
-                  <span className={`absolute inset-0 md:inset-auto ${f.crop}`}>
+                <div className="group relative aspect-[279/380] overflow-hidden md:aspect-auto md:uh-380">
+                  <span
+                    className={`absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] group-hover:scale-[1.07] motion-reduce:transition-none md:inset-auto ${f.crop}`}
+                  >
                     <Image
                       src={f.src}
                       alt={f.alt}
                       fill
                       sizes="(min-width: 768px) 23vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover"
+                      className="object-cover transition-[filter] duration-700 group-hover:brightness-105"
                     />
                   </span>
                 </div>

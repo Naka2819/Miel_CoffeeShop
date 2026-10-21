@@ -8,7 +8,7 @@ import type { Dictionary, Locale } from "@/app/[lang]/dictionaries";
 export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   // Dans la maquette, les liens du pied de page passent en 25 px sur la page menu.
   const onMenu = usePathname().replace(/^\/(fr|en)/, "").startsWith("/menu");
-  const link = `block text-[22px] font-bold uppercase tracking-[-0.04em] md:absolute md:whitespace-nowrap ${
+  const link = `footer-link text-[22px] font-bold uppercase tracking-[-0.04em] md:absolute md:whitespace-nowrap ${
     onMenu ? "md:ufs-25" : "md:ufs-30"
   }`;
   const muted = "font-medium uppercase tracking-[-0.04em] opacity-75";
@@ -28,7 +28,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
               </p>
             </div>
           </div>
-          <nav aria-label="Footer" className="flex flex-col gap-4 md:absolute md:ul-833 md:ut-80 md:block">
+          <nav aria-label="Footer" className="flex flex-col items-start gap-4 md:absolute md:ul-833 md:ut-80 md:block">
             <Link href={`/${lang}`} className={`${link} md:ut-0`}>
               {dict.nav.home}
             </Link>
