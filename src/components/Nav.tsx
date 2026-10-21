@@ -18,7 +18,7 @@ export function Nav({ lang, dict }: { lang: Locale; dict: Dictionary }) {
 
   return (
     <header className="sticky top-0 z-50 bg-brioche">
-      <div className="relative mx-auto flex items-center justify-between border-x border-b border-espresso px-5 py-3 md:block md:p-0 md:uw-1440 md:uh-54">
+      <div className="relative mx-auto flex items-center justify-between px-5 py-3 md:block md:p-0 md:uw-1440 md:uh-54">
         <nav
           aria-label="Navigation principale"
           className="flex gap-4 md:absolute md:ul-123 md:ut-0 md:ugap-40"
