@@ -23,13 +23,13 @@ export default async function InfoPage({ params }: PageProps<"/[lang]/informatio
 
   // Retour à la ligne après la première phrase, comme dans la maquette.
   const storyBreak = i.storyText.indexOf(". ") + 1;
-  const eyebrow = "text-[20px] italic tracking-[-0.04em] text-miel md:ufs-30";
+  const eyebrow = "pr-[0.04em] text-[20px] italic tracking-[-0.04em] text-miel md:ufs-30";
 
   return (
     <>
       {/* Mise en page inspirée de la page « About » de Sey Coffee : grande photo, texte centré
           en colonne étroite, photo pleine largeur, puis sections « surtitre + titre + texte ».
-          Toutes les images restent dans la grille de 1440 px. */}
+          Le concept est calé à gauche et l'adresse à droite, sur la grille de 1440 px. */}
 
       {/* Photo d'ouverture */}
       <section>
@@ -48,9 +48,9 @@ export default async function InfoPage({ params }: PageProps<"/[lang]/informatio
 
       {/* Concept */}
       <section>
-        <div className="mx-auto px-5 py-16 text-center md:px-0 md:upy-120 md:uw-1000">
+        <div className="mx-auto px-5 py-16 md:px-0 md:upy-120 md:uw-1440 md:upx-126">
           <p className={eyebrow}>{i.conceptLabel}</p>
-          <h1 className="mt-3 text-[28px] font-bold leading-[1.05] tracking-[-0.04em] md:umt-20 md:ufs-50">
+          <h1 className="mt-3 text-[28px] font-bold leading-[1.05] tracking-[-0.04em] md:umt-20 md:uw-1000 md:ufs-50">
             {i.conceptText}
           </h1>
         </div>
@@ -69,16 +69,18 @@ export default async function InfoPage({ params }: PageProps<"/[lang]/informatio
         </div>
       </section>
 
-      {/* Adresse et horaires */}
+      {/* Adresse et horaires : le texte à droite, les infos pratiques en face, à gauche */}
       <section>
-        <div className="mx-auto px-5 py-16 text-center md:px-0 md:upy-120 md:uw-700">
-          <p className={eyebrow}>{i.addressLabel}</p>
-          <h2 className="mt-3 text-[38px] font-bold uppercase leading-none tracking-[-0.04em] md:umt-20 md:ufs-60">
-            {i.addressTitle}
-          </h2>
-          <p className="mt-6 text-[19px] italic tracking-[-0.04em] md:umt-40 md:ufs-25">{i.addressText}</p>
+        <div className="mx-auto flex flex-col gap-10 px-5 py-16 md:flex-row-reverse md:items-end md:justify-between md:gap-0 md:px-0 md:upy-120 md:uw-1440 md:upx-126">
+          <div className="text-right md:uw-582">
+            <p className={eyebrow}>{i.addressLabel}</p>
+            <h2 className="mt-3 whitespace-nowrap pr-[0.04em] text-[38px] font-bold uppercase leading-none tracking-[-0.04em] md:umt-20 md:ufs-60">
+              {i.addressTitle}
+            </h2>
+            <p className="mt-6 pr-[0.04em] text-[19px] italic tracking-[-0.04em] md:umt-40 md:ufs-25">{i.addressText}</p>
+          </div>
 
-          <div className="mt-10 flex flex-col items-center gap-8 md:umt-60 md:ugap-40">
+          <div className="flex flex-col gap-8 md:ugap-40">
             <div>
               <p className="text-[22px] font-bold uppercase tracking-[-0.04em] md:ufs-30">{dict.common.city}</p>
               <p className="mt-1 text-[15px] font-medium uppercase tracking-[-0.04em] md:umt-6 md:ufs-20">
