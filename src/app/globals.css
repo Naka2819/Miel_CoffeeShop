@@ -138,6 +138,20 @@ body {
   transform: translateX(0.3em);
 }
 
+/* Vignette photo de la carte : apparaît en fondu avec un léger zoom. */
+.menu-preview {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.3s ease,
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.menu-preview.is-on {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   /* Mouvement réduit : on garde seulement le fondu, sans déplacement. */
   .js .reveal-item {
@@ -151,6 +165,11 @@ body {
 
   .link-swipe {
     transition: background-size 0.45s ease;
+  }
+
+  .menu-preview {
+    transform: none;
+    transition: opacity 0.3s ease;
   }
 
   .link-swipe:hover,

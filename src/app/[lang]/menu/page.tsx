@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { MenuPreview } from "@/components/MenuPreview";
 import { menu, type MenuSection } from "@/data/menu";
 import { getDictionary, hasLocale, type Locale } from "../dictionaries";
 
@@ -21,7 +22,7 @@ function ItemList({
       <h3 className="text-[28px] font-bold uppercase md:uh-65 md:ufs-50">{section.title[lang]}</h3>
       <ul className={`mt-4 flex flex-col gap-4 md:umt-30 md:ugap-40 ${priceRight}`}>
         {section.items.map((it) => (
-          <li key={it.name.fr} className="flex items-baseline justify-between gap-4 md:uh-46">
+          <li key={it.name.fr} data-photo={it.photo} className="flex items-baseline justify-between gap-4 md:uh-46">
             <span className="text-[19px] md:ufs-35">
               {it.name[lang]}{" "}
               {it.note && <span className="text-[14px] md:ufs-25">({it.note[lang]})</span>}
@@ -74,7 +75,10 @@ export default async function MenuPage({ params }: PageProps<"/[lang]/menu">) {
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
+  const photos = menu.flatMap((cat) => cat.sections.flatMap((s) => s.items.map((it) => it.photo)));
+
   return (
+    <MenuPreview photos={photos}>
     <div className="overflow-x-clip md:upt-20">
       {menu.map((cat) => (
         <section
@@ -154,5 +158,6 @@ export default async function MenuPage({ params }: PageProps<"/[lang]/menu">) {
         </section>
       ))}
     </div>
+    </MenuPreview>
   );
 }
